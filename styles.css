@@ -451,6 +451,11 @@ a:hover {
     margin: 0;
 }
 
+.highlight-pink {
+    color: #E8A0B5;
+    font-weight: 400;
+}
+
 .color-palette {
     display: flex;
     justify-content: center;
