@@ -377,10 +377,57 @@ a:hover {
 }
 
 /* ===== Dresscode ===== */
+.dresscode-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.dresscode-video {
+    flex-shrink: 0;
+    width: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(93, 78, 66, 0.2);
+}
+
+.dresscode-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .dresscode-content {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 400px;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .dresscode-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .dresscode-video {
+        width: 120px;
+    }
+
+    .dresscode-layout {
+        flex-direction: column;
+    }
+
+    .dresscode-video:first-child {
+        order: 1;
+    }
+
+    .dresscode-content {
+        order: 0;
+    }
+
+    .dresscode-video:last-child {
+        order: 2;
+    }
 }
 
 .dresscode-title {
