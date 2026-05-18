@@ -231,6 +231,45 @@ a:hover {
     border: 1px solid rgba(93, 78, 66, 0.1);
 }
 
+/* Location card with backdrop */
+.card-location {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+.card-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('unnamed123.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: sepia(30%) saturate(60%) brightness(105%) contrast(90%);
+    z-index: 0;
+}
+
+.card-backdrop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(245, 230, 220, 0.6) 0%,
+        rgba(184, 173, 163, 0.5) 100%
+    );
+}
+
+.card-location .card-content {
+    position: relative;
+    z-index: 1;
+}
+
 .detail-card .icon {
     font-size: 2.5rem;
     margin-bottom: 1rem;
