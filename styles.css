@@ -1,12 +1,14 @@
 /* ===== CSS Variables ===== */
 :root {
-    --color-primary: #2C3E50;
-    --color-secondary: #8E7B6B;
-    --color-accent: #B8860B;
-    --color-bg: #FDFBF7;
-    --color-bg-alt: #F5F1EB;
-    --color-text: #333333;
-    --color-text-light: #666666;
+    --color-primary: #5D4E42;
+    --color-secondary: #8B7B6B;
+    --color-accent: #9B8B7B;
+    --color-bg: #FDF8F4;
+    --color-bg-alt: #B8ADA3;
+    --color-text: #5D4E42;
+    --color-text-light: #7D6E62;
+    --color-blush: #F5E6DC;
+    --color-sage: #8B9B7A;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Montserrat', -apple-system, sans-serif;
 }
@@ -167,6 +169,38 @@ a:hover {
 
 .section-alt {
     background-color: var(--color-bg-alt);
+    color: #FDF8F4;
+}
+
+.section-alt h2,
+.section-alt h3 {
+    color: #FDF8F4;
+}
+
+.section-alt p,
+.section-alt .section-intro {
+    color: rgba(253, 248, 244, 0.9);
+}
+
+.section-alt a {
+    color: #FDF8F4;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.section-alt strong {
+    color: #FDF8F4;
+}
+
+/* Decorative botanical divider */
+.section h2::after {
+    content: '— ✿ —';
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-sage);
+    letter-spacing: 0.5em;
 }
 
 .container {
@@ -189,11 +223,12 @@ a:hover {
 }
 
 .detail-card {
-    background: white;
+    background: var(--color-blush);
     padding: 2.5rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(93, 78, 66, 0.1);
+    border: 1px solid rgba(93, 78, 66, 0.1);
 }
 
 .detail-card .icon {
@@ -220,8 +255,8 @@ a:hover {
 }
 
 .timeline li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--color-bg-alt);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(93, 78, 66, 0.15);
 }
 
 .timeline li:last-child {
@@ -230,15 +265,28 @@ a:hover {
 
 .time {
     font-weight: 500;
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-right: 0.75rem;
     display: inline-block;
     min-width: 65px;
 }
 
 .timeline-icon {
-    margin-right: 0.5rem;
-    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+}
+
+.timeline-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--color-primary);
+    stroke-width: 1.5;
+    fill: none;
 }
 
 /* ===== Dresscode ===== */
@@ -289,10 +337,11 @@ a:hover {
 }
 
 .hotel-card {
-    background: white;
+    background: var(--color-blush);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(93, 78, 66, 0.1);
+    border: 1px solid rgba(93, 78, 66, 0.1);
 }
 
 .hotel-distance {
@@ -309,16 +358,17 @@ a:hover {
 .btn-secondary {
     display: inline-block;
     padding: 0.6rem 1.5rem;
-    border: 1px solid var(--color-primary);
+    border: 1.5px solid var(--color-primary);
     color: var(--color-primary);
     border-radius: 4px;
     font-size: 0.9rem;
     transition: all 0.2s ease;
+    background: transparent;
 }
 
 .btn-secondary:hover {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-blush);
     opacity: 1;
 }
 
@@ -354,7 +404,7 @@ a:hover {
 /* ===== Footer ===== */
 footer {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-blush);
     text-align: center;
     padding: 3rem 1.5rem;
 }
