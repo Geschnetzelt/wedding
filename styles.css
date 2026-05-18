@@ -13,6 +13,80 @@
     --font-sans: 'Montserrat', -apple-system, sans-serif;
 }
 
+/* ===== Password Gate ===== */
+.password-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-box {
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-blush);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(93, 78, 66, 0.15);
+    max-width: 350px;
+}
+
+.password-box h2 {
+    font-family: var(--font-serif);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.password-box p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.password-box input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.password-box button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-blush);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.password-box button:hover {
+    opacity: 0.9;
+}
+
+.password-error {
+    color: #C75B7A;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 0 !important;
+}
+
 /* ===== Reset & Base ===== */
 *, *::before, *::after {
     box-sizing: border-box;

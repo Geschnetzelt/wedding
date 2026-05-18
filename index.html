@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="password-gate" class="password-gate">
+        <div class="password-box">
+            <h2>Willkommen!</h2>
+            <p>Bitte gib das Passwort ein:</p>
+            <input type="password" id="password-input" placeholder="Passwort" autofocus>
+            <button id="password-submit">Eintreten</button>
+            <p id="password-error" class="password-error"></p>
+        </div>
+    </div>
+
     <header class="hero">
         <div class="hero-content">
             <p class="save-the-date">Wir feiern unsere Hochzeit</p>
@@ -147,6 +157,34 @@
         <p class="footer-names">A & J</p>
         <p>Wir freuen uns auf euch!</p>
     </footer>
+
+    <script>
+        // Password protection
+        const SITE_PASSWORD = 'hochzeit2026';
+        const gate = document.getElementById('password-gate');
+        const input = document.getElementById('password-input');
+        const submit = document.getElementById('password-submit');
+        const error = document.getElementById('password-error');
+
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            gate.style.display = 'none';
+        }
+
+        function checkPassword() {
+            if (input.value === SITE_PASSWORD) {
+                sessionStorage.setItem('authenticated', 'true');
+                gate.style.display = 'none';
+            } else {
+                error.textContent = 'Falsches Passwort';
+                input.value = '';
+            }
+        }
+
+        submit.addEventListener('click', checkPassword);
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkPassword();
+        });
+    </script>
 
     <script>
         const jonasVideo = document.getElementById('jonas-video');
