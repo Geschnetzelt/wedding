@@ -57,7 +57,7 @@
                 <h2>Dresscode</h2>
                 <div class="dresscode-layout">
                     <div class="dresscode-video">
-                        <video autoplay loop muted playsinline>
+                        <video id="ali-video" autoplay muted playsinline>
                             <source src="Alivid.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -66,7 +66,7 @@
                         <p>Wir machen uns hübsch. Ihr dürft kommen wie ihr euch wohlfühlt - Hauptsache ihr kommt ❤</p>
                     </div>
                     <div class="dresscode-video video-jonas">
-                        <video id="jonas-video" autoplay loop muted playsinline>
+                        <video id="jonas-video" autoplay muted playsinline>
                             <source src="jonasvid.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -149,14 +149,52 @@
 
     <script>
         const jonasVideo = document.getElementById('jonas-video');
-        jonasVideo.addEventListener('loadedmetadata', () => {
+        const aliVideo = document.getElementById('ali-video');
+        let aliEnded = false;
+        let jonasEnded = false;
+
+        // Start both videos synced
+        function startBothVideos() {
+            aliEnded = false;
+            jonasEnded = false;
             jonasVideo.currentTime = 3;
-        });
-        jonasVideo.addEventListener('timeupdate', () => {
-            if (jonasVideo.currentTime < 3) {
-                jonasVideo.currentTime = 3;
+            aliVideo.currentTime = 0;
+            jonasVideo.play();
+            aliVideo.play();
+        }
+
+        // When Ali video ends, freeze for 1 sec then check if Jonas is done
+        aliVideo.addEventListener('ended', () => {
+            aliEnded = true;
+            if (jonasEnded) {
+                setTimeout(startBothVideos, 1000);
+            } else {
+                // Wait for Jonas, then add 1 sec freeze
+                setTimeout(() => {
+                    if (jonasEnded) startBothVideos();
+                }, 1000);
             }
         });
+
+        // When Jonas video ends, check if Ali is done (with freeze)
+        jonasVideo.addEventListener('ended', () => {
+            jonasEnded = true;
+            if (aliEnded) {
+                // Ali already ended + freeze time passed
+                startBothVideos();
+            }
+        });
+
+        // Initial start when both are loaded
+        let loadedCount = 0;
+        function onLoaded() {
+            loadedCount++;
+            if (loadedCount === 2) {
+                startBothVideos();
+            }
+        }
+        jonasVideo.addEventListener('loadedmetadata', onLoaded);
+        aliVideo.addEventListener('loadedmetadata', onLoaded);
     </script>
 </body>
 </html>
