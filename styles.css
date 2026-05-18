@@ -560,6 +560,12 @@ a:hover {
     margin: 0.5rem 0;
 }
 
+.contact-illustration {
+    margin-top: 2rem;
+    max-width: 250px;
+    height: auto;
+}
+
 /* ===== Footer ===== */
 footer {
     background: var(--color-primary);
