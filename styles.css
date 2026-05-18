@@ -277,9 +277,9 @@ a:hover {
 .card-zeitplan .card-content {
     position: relative;
     z-index: 1;
-    background: rgba(253, 248, 244, 0.7);
-    backdrop-filter: blur(1.5px);
-    -webkit-backdrop-filter: blur(1.5px);
+    background: rgba(253, 248, 244, 0.5);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
     padding: 0.75rem 1rem;
     border-radius: 6px;
     width: 65%;
@@ -329,6 +329,21 @@ a:hover {
 .timeline li {
     padding: 0.75rem 0;
     border-bottom: 1px solid rgba(93, 78, 66, 0.15);
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.timeline li .time {
+    flex-shrink: 0;
+}
+
+.timeline li .timeline-icon {
+    flex-shrink: 0;
+}
+
+.timeline-text {
+    flex: 1;
 }
 
 .timeline li:last-child {
