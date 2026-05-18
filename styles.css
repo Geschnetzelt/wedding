@@ -528,14 +528,14 @@ a:hover {
 
 /* ===== Info Grid ===== */
 .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
-    justify-items: center;
 }
 
-.info-grid .info-item:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
+.info-grid .info-item {
+    flex: 0 1 280px;
 }
 
 .info-item {
