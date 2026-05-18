@@ -65,8 +65,8 @@
                         <p class="dresscode-title">Frei</p>
                         <p>Wir machen uns hübsch. Ihr dürft kommen wie ihr euch wohlfühlt - Hauptsache ihr kommt ❤</p>
                     </div>
-                    <div class="dresscode-video">
-                        <video autoplay loop muted playsinline>
+                    <div class="dresscode-video video-jonas">
+                        <video id="jonas-video" autoplay loop muted playsinline>
                             <source src="jonasvid.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -146,5 +146,17 @@
         <p class="footer-names">A & J</p>
         <p>Wir freuen uns auf euch!</p>
     </footer>
+
+    <script>
+        const jonasVideo = document.getElementById('jonas-video');
+        jonasVideo.addEventListener('loadedmetadata', () => {
+            jonasVideo.currentTime = 3;
+        });
+        jonasVideo.addEventListener('timeupdate', () => {
+            if (jonasVideo.currentTime < 3) {
+                jonasVideo.currentTime = 3;
+            }
+        });
+    </script>
 </body>
 </html>

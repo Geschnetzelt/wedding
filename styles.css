@@ -398,6 +398,10 @@ a:hover {
     display: block;
 }
 
+.dresscode-video.video-jonas video {
+    transform: scale(1.15);
+}
+
 .dresscode-content {
     max-width: 400px;
     text-align: center;
