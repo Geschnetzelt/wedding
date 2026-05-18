@@ -403,8 +403,13 @@ a:hover {
 }
 
 .dresscode-content {
+    flex: 1;
     max-width: 400px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -436,9 +441,10 @@ a:hover {
 
 .dresscode-title {
     font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--color-blush);
+    margin-bottom: 0.75rem;
+    font-style: italic;
 }
 
 .color-palette {
