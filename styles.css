@@ -231,9 +231,14 @@ a:hover {
 .time {
     font-weight: 500;
     color: var(--color-accent);
-    margin-right: 1rem;
+    margin-right: 0.75rem;
     display: inline-block;
-    min-width: 50px;
+    min-width: 65px;
+}
+
+.timeline-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
 }
 
 /* ===== Dresscode ===== */
