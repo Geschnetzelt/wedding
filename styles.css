@@ -571,7 +571,7 @@ a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(93, 78, 66, 0.1);
     border: 1px solid rgba(93, 78, 66, 0.1);
-    height: 280px;
+    height: 320px;
 }
 
 .hotel-card-backdrop {
@@ -593,12 +593,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        to top,
-        rgba(245, 230, 220, 0.9) 0%,
-        rgba(245, 230, 220, 0.3) 60%,
-        rgba(245, 230, 220, 0.1) 100%
-    );
+    background: rgba(245, 230, 220, 0.2);
 }
 
 .hotel-card-content {
@@ -608,9 +603,15 @@ a:hover {
     right: 0;
     z-index: 1;
     padding: 1.25rem;
-    height: 150px;
+    padding-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(
+        to top,
+        rgba(245, 230, 220, 0.95) 0%,
+        rgba(245, 230, 220, 0.9) 70%,
+        rgba(245, 230, 220, 0) 100%
+    );
 }
 
 .hotel-card-content h3 {
@@ -627,7 +628,7 @@ a:hover {
 }
 
 .hotel-card-content .hotel-address {
-    flex: 1;
+    margin-bottom: 0.75rem;
 }
 
 .hotel-card-content .btn-secondary {
