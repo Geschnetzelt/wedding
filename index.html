@@ -240,8 +240,19 @@
                 startBothVideos();
             }
         }
-        jonasVideo.addEventListener('loadedmetadata', onLoaded);
-        aliVideo.addEventListener('loadedmetadata', onLoaded);
+
+        // Check if already loaded, otherwise wait for event
+        if (jonasVideo.readyState >= 1) {
+            onLoaded();
+        } else {
+            jonasVideo.addEventListener('loadedmetadata', onLoaded);
+        }
+
+        if (aliVideo.readyState >= 1) {
+            onLoaded();
+        } else {
+            aliVideo.addEventListener('loadedmetadata', onLoaded);
+        }
     </script>
 </body>
 </html>
