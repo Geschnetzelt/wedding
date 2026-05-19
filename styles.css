@@ -608,22 +608,28 @@ a:hover {
     position: relative;
     z-index: 1;
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 0.25rem;
+    min-height: 160px;
 }
 
 .hotel-card-content h3 {
-    margin-bottom: 0.25rem;
+    margin: 0;
 }
 
 .hotel-card-content p {
     margin: 0;
 }
 
+.hotel-card-content .hotel-address {
+    align-self: start;
+}
+
 .hotel-card-content .btn-secondary {
-    margin-top: 0.75rem;
-    align-self: flex-start;
+    margin-top: 0.5rem;
+    align-self: end;
+    justify-self: start;
 }
 
 .hotel-distance {
