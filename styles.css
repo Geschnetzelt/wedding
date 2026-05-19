@@ -571,10 +571,7 @@ a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(93, 78, 66, 0.1);
     border: 1px solid rgba(93, 78, 66, 0.1);
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    height: 280px;
 }
 
 .hotel-card-backdrop {
@@ -605,31 +602,36 @@ a:hover {
 }
 
 .hotel-card-content {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
-    padding: 1.5rem;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    gap: 0.25rem;
-    min-height: 160px;
+    padding: 1.25rem;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
 }
 
 .hotel-card-content h3 {
-    margin: 0;
+    margin: 0 0 0.25rem 0;
 }
 
 .hotel-card-content p {
     margin: 0;
+    font-size: 0.9rem;
+}
+
+.hotel-card-content .hotel-distance {
+    margin-bottom: 0.25rem;
 }
 
 .hotel-card-content .hotel-address {
-    align-self: start;
+    flex: 1;
 }
 
 .hotel-card-content .btn-secondary {
-    margin-top: 0.5rem;
-    align-self: end;
-    justify-self: start;
+    align-self: flex-start;
 }
 
 .hotel-distance {
