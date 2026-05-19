@@ -674,4 +674,87 @@ footer p:last-child {
         width: 40px;
         height: 40px;
     }
+
+    /* Card content - full width on mobile */
+    .card-location .card-content,
+    .card-zeitplan .card-content {
+        width: 95%;
+        padding: 0.75rem;
+    }
+
+    /* Timeline mobile fixes */
+    .timeline li {
+        flex-wrap: wrap;
+    }
+
+    .time {
+        min-width: 55px;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+    }
+
+    .timeline-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+    }
+
+    .timeline-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .timeline-text {
+        font-size: 0.85rem;
+    }
+
+    /* Cards min-height adjustment */
+    .card-location,
+    .card-zeitplan {
+        min-height: 280px;
+    }
+
+    /* Password box mobile */
+    .password-box {
+        margin: 1rem;
+        padding: 2rem;
+    }
+
+    /* Hero adjustments */
+    .hero-content {
+        margin-top: 15vh;
+    }
+
+    /* Contact illustration */
+    .contact-illustration {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Very small screens - stack timeline vertically */
+    .timeline li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .time {
+        margin-bottom: 0.25rem;
+    }
+
+    .timeline-text {
+        padding-left: 0;
+    }
+
+    .timeline-icon {
+        display: none;
+    }
+
+    .dresscode-content {
+        margin-top: 0;
+    }
+
+    .dresscode-video {
+        width: 100px;
+    }
 }
