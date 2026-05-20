@@ -721,8 +721,24 @@ a:hover {
     gap: 1.25rem;
 }
 
-.rsvp-form .hidden {
+.rsvp-form .hidden,
+.rsvp-form.hidden,
+.rsvp-success.hidden {
     display: none;
+}
+
+.rsvp-success {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.rsvp-success h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.rsvp-success p {
+    font-size: 1.1rem;
 }
 
 .form-group {

@@ -146,7 +146,11 @@
                 </div>
 
                 <div class="rsvp-form-container" id="rsvp-form-container">
-                    <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="rsvp-form">
+                    <div id="rsvp-success" class="rsvp-success hidden">
+                        <h3>Danke!</h3>
+                        <p>Eure Rückmeldung ist bei uns angekommen. Wir freuen uns auf euch!</p>
+                    </div>
+                    <form name="rsvp" id="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form">
                         <input type="hidden" name="form-name" value="rsvp">
                         <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
 
@@ -321,6 +325,31 @@
                 }, 100);
             }
         }
+
+        // RSVP Form submission
+        const rsvpForm = document.getElementById('rsvp-form');
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(rsvpForm);
+
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    rsvpForm.classList.add('hidden');
+                    document.getElementById('rsvp-success').classList.remove('hidden');
+                } else {
+                    alert('Es gab einen Fehler. Bitte versuche es erneut.');
+                }
+            } catch (error) {
+                alert('Es gab einen Fehler. Bitte versuche es erneut.');
+            }
+        });
     </script>
 </body>
 </html>
