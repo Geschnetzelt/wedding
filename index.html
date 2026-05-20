@@ -138,10 +138,14 @@
                         <h3>Kinder</h3>
                         <p>Kinder sind herzlich willkommen! Bitte gebt uns bei der Rückmeldung Bescheid.</p>
                     </div>
+                    <div class="info-item rsvp-tile" id="rsvp-tile" onclick="toggleRsvpForm()">
+                        <h3>Rückmeldung</h3>
+                        <p>Bitte gebt uns bis zum <strong>30.06.2026</strong> Bescheid.</p>
+                        <span class="rsvp-tile-hint">Klicken zum Öffnen ↓</span>
+                    </div>
                 </div>
 
-                <div class="rsvp-form-container">
-                    <h3>Rückmeldung</h3>
+                <div class="rsvp-form-container" id="rsvp-form-container">
                     <form name="rsvp" method="POST" data-netlify="true" class="rsvp-form">
                         <input type="hidden" name="form-name" value="rsvp">
 
@@ -299,6 +303,22 @@
             onLoaded();
         } else {
             aliVideo.addEventListener('loadedmetadata', onLoaded);
+        }
+    </script>
+
+    <script>
+        // RSVP Form toggle
+        function toggleRsvpForm() {
+            const formContainer = document.getElementById('rsvp-form-container');
+            const tile = document.getElementById('rsvp-tile');
+            formContainer.classList.toggle('expanded');
+            tile.classList.toggle('active');
+
+            if (formContainer.classList.contains('expanded')) {
+                setTimeout(() => {
+                    formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
         }
     </script>
 </body>
