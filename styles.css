@@ -687,7 +687,8 @@ a:hover {
     display: block;
     margin-top: 0.75rem;
     font-size: 0.85rem;
-    opacity: 0.7;
+    color: #E8A0B5;
+    font-weight: 400;
 }
 
 .rsvp-tile.active .rsvp-tile-hint {
