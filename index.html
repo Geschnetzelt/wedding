@@ -135,13 +135,60 @@
                         schenken möchte: Wir freuen uns über einen Beitrag zu unseren Flitterwochen.</p>
                     </div>
                     <div class="info-item">
-                        <h3>Rückmeldung</h3>
-                        <p>Bitte gebt uns bis zum <strong>30.06.2026</strong> Bescheid, ob ihr dabei seid.</p>
-                    </div>
-                    <div class="info-item">
                         <h3>Kinder</h3>
                         <p>Kinder sind herzlich willkommen! Bitte gebt uns bei der Rückmeldung Bescheid.</p>
                     </div>
+                </div>
+
+                <div class="rsvp-form-container">
+                    <h3>Rückmeldung</h3>
+                    <form name="rsvp" method="POST" data-netlify="true" class="rsvp-form">
+                        <input type="hidden" name="form-name" value="rsvp">
+
+                        <div class="form-group">
+                            <label for="name">Name / Familie *</label>
+                            <input type="text" id="name" name="name" placeholder="z.B. Max Mustermann oder Familie Müller" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Könnt ihr kommen? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="ja" required>
+                                    <span>Ja, wir sind dabei!</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="nein">
+                                    <span>Leider nicht</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guests">Anzahl Personen *</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Personen</option>
+                                <option value="3">3 Personen</option>
+                                <option value="4">4 Personen</option>
+                                <option value="5">5 Personen</option>
+                                <option value="6">6+ Personen</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dietary">Essenswünsche / Allergien</label>
+                            <textarea id="dietary" name="dietary" rows="2" placeholder="z.B. vegetarisch, Laktoseintoleranz..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Nachricht an uns</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Optional: Grüße, Fragen..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Rückmeldung senden</button>
+                    </form>
                 </div>
             </div>
         </section>
