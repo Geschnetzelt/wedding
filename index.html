@@ -148,7 +148,7 @@
                 <div class="rsvp-form-container" id="rsvp-form-container">
                     <div id="rsvp-success" class="rsvp-success hidden">
                         <h3>Danke!</h3>
-                        <p>Eure Rückmeldung ist bei uns angekommen. Wir freuen uns auf euch!</p>
+                        <p id="rsvp-success-message"></p>
                     </div>
                     <form name="rsvp" id="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form">
                         <input type="hidden" name="form-name" value="rsvp">
@@ -341,6 +341,15 @@
                 });
 
                 if (response.ok) {
+                    const attendance = formData.get('attendance');
+                    const messageEl = document.getElementById('rsvp-success-message');
+
+                    if (attendance === 'ja') {
+                        messageEl.textContent = 'Eure Rückmeldung ist bei uns angekommen. Wir freuen uns auf euch!';
+                    } else {
+                        messageEl.textContent = 'Eure Rückmeldung ist bei uns angekommen. Schade, dass ihr nicht dabei sein könnt!';
+                    }
+
                     rsvpForm.classList.add('hidden');
                     document.getElementById('rsvp-success').classList.remove('hidden');
                 } else {
