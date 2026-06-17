@@ -152,6 +152,7 @@
                     </div>
                     <form name="rsvp" id="rsvp-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rsvp-form">
                         <input type="hidden" name="form-name" value="rsvp">
+                        <input type="hidden" name="auth-token" id="auth-token" value="">
                         <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
 
                         <div class="form-group">
@@ -223,21 +224,50 @@
     </footer>
 
     <script>
-        // Password protection
-        const SITE_PASSWORD = 'Ali&Jonas26';
+        // Password protection with hashed password (SHA-256)
+        const PASSWORD_HASH = 'c4806e3cc4fe9e22d04d866d5f9c5ae1837b7a8ddbce7b918a0608a0231803e9';
+        const AUTH_TOKEN_KEY = 'weddingAuth2026';
         const gate = document.getElementById('password-gate');
         const input = document.getElementById('password-input');
         const submit = document.getElementById('password-submit');
         const error = document.getElementById('password-error');
 
-        if (sessionStorage.getItem('authenticated') === 'true') {
-            gate.style.display = 'none';
+        // Hash function for password verification
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password + 'hochzeit2026salt');
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
         }
 
-        function checkPassword() {
-            if (input.value === SITE_PASSWORD) {
+        // Generate auth token for form submission (date-based, valid for current day)
+        function generateAuthToken() {
+            const date = new Date().toISOString().split('T')[0];
+            return btoa(date + AUTH_TOKEN_KEY).substring(0, 24);
+        }
+
+        // Set auth token in form
+        function setAuthToken() {
+            const tokenField = document.getElementById('auth-token');
+            if (tokenField) {
+                tokenField.value = generateAuthToken();
+            }
+        }
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            gate.style.display = 'none';
+            setAuthToken();
+        }
+
+        async function checkPassword() {
+            const inputHash = await hashPassword(input.value);
+
+            if (inputHash === PASSWORD_HASH) {
                 sessionStorage.setItem('authenticated', 'true');
                 gate.style.display = 'none';
+                setAuthToken();
             } else {
                 error.textContent = 'Falsches Passwort';
                 input.value = '';
