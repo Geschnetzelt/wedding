@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unsere Hochzeit | Anna-Lisa & Jonas</title>
+    <title>Einladung</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,6 @@
         </div>
     </div>
 
-    <!-- Content wird nach Login dynamisch geladen -->
     <div id="protected-content"></div>
 
     <script>
@@ -59,7 +58,7 @@
         // Load protected content
         async function loadContent() {
             try {
-                const response = await fetch('content.html');
+                const response = await fetch('c7f3a9d2e1b8.html');
                 if (response.ok) {
                     const html = await response.text();
                     document.getElementById('protected-content').innerHTML = html;
